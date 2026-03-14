@@ -625,7 +625,7 @@ Elegance, sunset sips, gourmet bites, music, dancing and beautiful vineyard vibe
 
 <section class="venue">
 
-<h2>Venue</h2>
+<h2>RSVP</h2>
 
 <div class="rsvp">
 
@@ -647,29 +647,37 @@ function closeModal(){
 document.getElementById("modal").style.display="none";
 }
 
-const eventDate = new Date("March 28, 2026 16:00:00").getTime();
 
-setInterval(function(){
+const eventDate = new Date(2026, 2, 28, 16, 0, 0).getTime();
+
+function updateCountdown(){
 
 let now = new Date().getTime();
 let distance = eventDate - now;
 
-let days = Math.floor(distance/(1000*60*60*24));
-let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
-let seconds = Math.floor((distance%(1000*60))/1000);
+if(distance < 0){
+distance = 0;
+}
 
-document.getElementById("days").innerText = days;
-document.getElementById("hours").innerText = hours;
-document.getElementById("minutes").innerText = minutes;
-document.getElementById("seconds").innerText = seconds;
+let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-document.getElementById("m-days").innerText = days;
-document.getElementById("m-hours").innerText = hours;
-document.getElementById("m-minutes").innerText = minutes;
-document.getElementById("m-seconds").innerText = seconds;
+document.getElementById("days").textContent = days;
+document.getElementById("hours").textContent = hours;
+document.getElementById("minutes").textContent = minutes;
+document.getElementById("seconds").textContent = seconds;
 
-},1000);
+document.getElementById("m-days").textContent = days;
+document.getElementById("m-hours").textContent = hours;
+document.getElementById("m-minutes").textContent = minutes;
+document.getElementById("m-seconds").textContent = seconds;
+
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
 
 let currentSlide = 1;
 const totalSlides = 25;

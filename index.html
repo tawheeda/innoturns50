@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Innocentia's 50th Celebration</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fff7f6;
+color:#4b2c35;
+overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+background:
+linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
+url("images/img1.jpeg");
+
+background-size:cover;
+background-position:center;
+
+color:white;
+padding:40px;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:4rem;
+letter-spacing:3px;
+margin-bottom:20px;
+}
+
+.hero h2{
+font-size:1.6rem;
+}
+
+/* COUNTDOWN */
+
+.countdown{
+display:flex;
+gap:30px;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+.count-box{
+background:white;
+padding:20px 26px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+min-width:90px;
+font-weight:600;
+color:#7a1e3a;
+}
+
+/* SECTIONS */
+
+section{
+padding:100px 10%;
+text-align:center;
+}
+
+/* DETAILS */
+
+.details h2{
+font-family:'Playfair Display';
+font-size:2.5rem;
+margin-bottom:20px;
+color:#7a1e3a;
+}
+
+.details p{
+max-width:700px;
+margin:auto;
+line-height:1.8;
+font-size:1.2rem;
+}
+
+/* COLORS */
+
+.colors{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+.color{
+width:120px;
+height:120px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.green{background:#5f9e78;}
+.pink{background:#ff8db3;}
+.burgundy{background:#7a1e3a;}
+.brown{background:#7a4c3a;}
+
+/* SLIDESHOW */
+
+.slideshow{
+
+max-width:900px;
+margin:60px auto;
+
+height:500px;
+
+border-radius:20px;
+overflow:hidden;
+
+background:#e6e1dd;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+
+position:relative;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+.slide{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+object-fit:contain;
+
+opacity:0;
+
+transition:opacity 1.4s ease;
+
+}
+
+.slide.active{
+opacity:1;
+}
+
+/* DOTS */
+
+.dots{
+display:flex;
+justify-content:center;
+gap:12px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.dot{
+
+width:12px;
+height:12px;
+
+border-radius:50%;
+
+background:#e6c8d0;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.dot.active{
+background:#7a1e3a;
+width:26px;
+border-radius:20px;
+}
+
+/* VENUE */
+
+.venue{
+background:linear-gradient(180deg,#fff,#fff2f4);
+}
+
+.venue h2{
+font-family:'Playfair Display';
+font-size:2.5rem;
+margin-bottom:20px;
+color:#7a1e3a;
+}
+
+.venue p{
+font-size:1.2rem;
+}
+
+/* RSVP */
+
+.rsvp{
+margin-top:40px;
+}
+
+.rsvp a{
+padding:16px 44px;
+font-size:1.2rem;
+border-radius:40px;
+background:linear-gradient(45deg,#ff7fa5,#a3003d);
+text-decoration:none;
+color:white;
+box-shadow:0 10px 25px rgba(255,120,160,0.45);
+transition:.3s;
+}
+
+.rsvp a:hover{
+transform:scale(1.05);
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:50px;
+font-size:.95rem;
+color:#7c5a61;
+background:#fff2f4;
+}
+
+/* MODAL */
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+.modal-content{
+background:#f5efe9;
+padding:60px 40px;
+border-radius:20px;
+max-width:800px;
+width:90%;
+text-align:center;
+}
+
+.modal-countdown{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.modal-box{
+background:#3a2f28;
+color:#d6a84f;
+padding:25px 30px;
+border-radius:16px;
+min-width:120px;
+}
+
+.modal-box span{
+font-size:2.5rem;
+display:block;
+}
+
+.enter-btn{
+margin-top:40px;
+padding:14px 36px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#b48a3c,#e0b95d);
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.4rem;
+}
+
+.slideshow{
+height:320px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<h3>COUNTING DOWN TO</h3>
+<h1>Innocentia's 50th Birthday</h1>
+
+<p>28 March 2026 · 16:00</p>
+
+<div class="modal-countdown">
+
+<div class="modal-box"><span id="m-days">0</span>Days</div>
+<div class="modal-box"><span id="m-hours">0</span>Hours</div>
+<div class="modal-box"><span id="m-minutes">0</span>Minutes</div>
+<div class="modal-box"><span id="m-seconds">0</span>Seconds</div>
+
+</div>
+
+<button class="enter-btn" onclick="closeModal()">Enter Celebration</button>
+
+</div>
+</div>
+
+<section class="hero">
+
+<h1>Innocentia Turns 50</h1>
+<h2>50 Years of Love • Laughter • Music</h2>
+
+<div class="countdown">
+
+<div class="count-box"><div id="days">0</div>Days</div>
+<div class="count-box"><div id="hours">0</div>Hours</div>
+<div class="count-box"><div id="minutes">0</div>Minutes</div>
+<div class="count-box"><div id="seconds">0</div>Seconds</div>
+
+</div>
+
+</section>
+
+<section class="details">
+
+<h2>The Celebration</h2>
+
+<p>
+Join us for a magical evening celebrating Innocentia's milestone birthday.
+Elegance, sunset sips, gourmet bites, music, dancing and beautiful vineyard vibes.
+</p>
+
+<div class="colors">
+
+<div class="color green">Green</div>
+<div class="color pink">Pink</div>
+<div class="color burgundy">Burgundy</div>
+<div class="color brown">Brown</div>
+
+</div>
+
+</section>
+
+<section class="moodboard">
+
+<h2 style="font-family:Playfair Display">Mood Board</h2>
+
+<div class="slideshow">
+
+<img id="slideA" class="slide active" src="images/img1.jpeg">
+<img id="slideB" class="slide" src="images/img2.jpeg">
+
+</div>
+
+<div class="dots" id="dots"></div>
+
+</section>
+
+<section class="venue">
+
+<h2>Venue</h2>
+
+<p>
+Klein Goederust<br>
+R45 Main Road<br>
+Franschhoek
+</p>
+
+<p style="margin-top:20px;">
+28 March 2026<br>
+15:30 for 16:00
+</p>
+
+<div class="rsvp">
+
+<a href="https://wa.me/27646767546">RSVP via WhatsApp</a>
+
+<p style="margin-top:15px;">RSVP by 20 March 2026</p>
+
+</div>
+
+</section>
+
+<footer>
+A night of elegance, wine & celebration 🍷
+</footer>
+
+<script>
+
+function closeModal(){
+document.getElementById("modal").style.display="none"
+}
+
+const eventDate = new Date("March 28, 2026 16:00:00").getTime()
+
+setInterval(function(){
+
+let now = new Date().getTime()
+let distance = eventDate - now
+
+let days = Math.floor(distance/(1000*60*60*24))
+let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60))
+let minutes = Math.floor((distance%(1000*60*60))/(1000*60))
+let seconds = Math.floor((distance%(1000*60))/1000)
+
+document.getElementById("days").innerText=days
+document.getElementById("hours").innerText=hours
+document.getElementById("minutes").innerText=minutes
+document.getElementById("seconds").innerText=seconds
+
+document.getElementById("m-days").innerText=days
+document.getElementById("m-hours").innerText=hours
+document.getElementById("m-minutes").innerText=minutes
+document.getElementById("m-seconds").innerText=seconds
+
+},1000)
+
+let currentSlide = 1
+const totalSlides = 25
+
+const slideA = document.getElementById("slideA")
+const slideB = document.getElementById("slideB")
+
+let showingA = true
+
+const dotsWrap = document.getElementById("dots")
+
+for(let i=1;i<=totalSlides;i++){
+
+let dot=document.createElement("span")
+dot.className="dot"+(i===1?" active":"")
+dot.onclick=()=>goToSlide(i)
+
+dotsWrap.appendChild(dot)
+
+}
+
+function updateDots(index){
+document.querySelectorAll(".dot").forEach((dot,i)=>{
+dot.classList.toggle("active", i===index-1)
+})
+}
+
+function showSlide(num){
+
+let src="images/img"+num+".jpeg"
+
+if(showingA){
+
+slideB.src=src
+slideB.classList.add("active")
+slideA.classList.remove("active")
+
+}else{
+
+slideA.src=src
+slideA.classList.add("active")
+slideB.classList.remove("active")
+
+}
+
+showingA=!showingA
+
+updateDots(num)
+
+}
+
+function nextSlide(){
+
+currentSlide++
+
+if(currentSlide>totalSlides){
+currentSlide=1
+}
+
+showSlide(currentSlide)
+
+}
+
+setInterval(nextSlide,3500)
+
+function goToSlide(num){
+
+currentSlide=num
+showSlide(num)
+
+}
+
+let startX=0
+
+document.querySelector(".slideshow").addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX
+})
+
+document.querySelector(".slideshow").addEventListener("touchend",e=>{
+
+let endX=e.changedTouches[0].clientX
+
+if(startX-endX>50) nextSlide()
+
+if(endX-startX>50){
+
+currentSlide--
+
+if(currentSlide<1){
+currentSlide=totalSlides
+}
+
+showSlide(currentSlide)
+
+}
+
+})
+
+</script>
+
+</body>
+</html>

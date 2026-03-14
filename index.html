@@ -38,7 +38,7 @@ text-align:center;
 
 background:
 linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
-url("images/hero-img.jpeg");
+url("images/hero2.jpeg");
 
 background-size:cover;
 background-position:center;
@@ -314,6 +314,56 @@ cursor:pointer;
 min-width:220px;
 }
 
+/* AIDE MEMOIR */
+
+.aide-memoir{
+background:#fffaf8;
+padding:100px 10%;
+text-align:center;
+}
+
+.aide-memoir h2{
+font-family:'Playfair Display',serif;
+font-size:2.5rem;
+margin-bottom:30px;
+color:#7a1e3a;
+}
+
+.aide-memoir-image{
+max-width:900px;
+margin:0 auto;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,0.12);
+background:#f3ece8;
+}
+
+.aide-memoir-image img{
+display:block;
+width:100%;
+height:auto;
+object-fit:cover;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.aide-memoir{
+padding:70px 7%;
+}
+
+.aide-memoir h2{
+font-size:2rem;
+margin-bottom:20px;
+}
+
+.aide-memoir-image{
+border-radius:16px;
+}
+
+}
+
 /* TABLET */
 
 @media(max-width:900px){
@@ -546,6 +596,8 @@ Elegance, sunset sips, gourmet bites, music, dancing and beautiful vineyard vibe
 
 </section>
 
+
+
 <section class="moodboard">
 
 <h2 style="font-family:Playfair Display">Mood Board</h2>
@@ -561,25 +613,24 @@ Elegance, sunset sips, gourmet bites, music, dancing and beautiful vineyard vibe
 
 </section>
 
+<section class="aide-memoir">
+
+<h2>Aide Memoir</h2>
+
+<div class="aide-memoir-image">
+<img src="images/aide-memoire.jpeg" alt="Aide Memoir">
+</div>
+
+</section>
+
 <section class="venue">
 
 <h2>Venue</h2>
 
-<p>
-Klein Goederust<br>
-R45 Main Road<br>
-Franschhoek
-</p>
-
-<p style="margin-top:20px;">
-28 March 2026<br>
-15:30 for 16:00
-</p>
-
 <div class="rsvp">
 
 <a href="https://wa.me/27646767546">RSVP via WhatsApp</a>
-
+<br>
 <p style="margin-top:15px;">RSVP by 20 March 2026</p>
 
 </div>

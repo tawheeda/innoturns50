@@ -28,7 +28,8 @@ overflow-x:hidden;
 /* HERO */
 
 .hero{
-height:100vh;
+position:relative;
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -41,6 +42,14 @@ background-size:cover;
 background-position:center;
 color:white;
 padding:40px;
+overflow:hidden;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+width:100%;
 }
 
 .hero h1{
@@ -315,7 +324,7 @@ border:1px solid rgba(109,18,48,0.15);
 .directions-title{
 font-size:2.4rem;
 margin-bottom:28px;
-color:#6d1230; /* burgundy */
+color:#6d1230;
 font-family:'Poppins',sans-serif;
 line-height:1.1;
 font-weight:600;
@@ -345,7 +354,7 @@ padding-bottom:0;
 width:38px;
 height:38px;
 border-radius:50%;
-background:#6d1230; /* burgundy */
+background:#6d1230;
 color:#ffffff;
 display:flex;
 align-items:center;
@@ -366,7 +375,7 @@ color:#4f2d33;
 display:block;
 font-size:1.05rem;
 margin-bottom:4px;
-color:#4c6630; /* olive green accent */
+color:#4c6630;
 }
 
 /* FOOTER */
@@ -387,7 +396,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(109,18,48,0.35); /* burgundy overlay instead of black */
+background:rgba(109,18,48,0.35);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -396,7 +405,7 @@ padding:20px;
 }
 
 .modal-content{
-background:linear-gradient(135deg,#e7c6cf,#ead7cf); /* dusty pink gradient */
+background:linear-gradient(135deg,#e7c6cf,#ead7cf);
 border-radius:24px;
 width:min(95%, 760px);
 max-height:90vh;
@@ -420,7 +429,7 @@ color:#4f2d33;
 font-size:1.1rem;
 letter-spacing:1px;
 margin-bottom:10px;
-color:#4c6630; /* olive */
+color:#4c6630;
 text-transform:uppercase;
 }
 
@@ -429,7 +438,7 @@ font-family:'Poppins',sans-serif;
 font-size:3.2rem;
 line-height:1.15;
 margin-bottom:12px;
-color:#6d1230; /* burgundy */
+color:#6d1230;
 }
 
 .modal-date{
@@ -445,10 +454,8 @@ gap:20px;
 flex-wrap:wrap;
 }
 
-/* COUNTDOWN BOXES */
-
 .modal-box{
-background:#6d1230; /* burgundy */
+background:#6d1230;
 color:#ffffff;
 padding:24px 20px;
 border-radius:18px;
@@ -467,17 +474,15 @@ margin-bottom:10px;
 .modal-box p{
 margin:0;
 font-size:1rem;
-color:#ead7cf; /* nude accent */
+color:#ead7cf;
 }
-
-/* ENTER BUTTON */
 
 .enter-btn{
 margin-top:38px;
 padding:16px 38px;
 border:none;
 border-radius:30px;
-background:linear-gradient(45deg,#6d1230,#a98363); /* burgundy -> brown accent */
+background:linear-gradient(45deg,#6d1230,#a98363);
 color:white;
 font-size:18px;
 cursor:pointer;
@@ -498,7 +503,7 @@ width:10px;
 }
 
 .modal-content::-webkit-scrollbar-thumb{
-background:#a98363; /* warm brown accent */
+background:#a98363;
 border-radius:20px;
 }
 
@@ -539,7 +544,9 @@ object-fit:cover;
 
 .hero{
 padding:40px 24px;
-align-items:flex-end;
+justify-content:flex-end;
+align-items:center;
+background-position:center top;
 }
 
 .hero-content{
@@ -601,8 +608,10 @@ border-radius:16px;
 
 .hero{
 padding:30px 20px;
-align-items:flex-end;
+justify-content:flex-end;
+align-items:center;
 text-align:center;
+background-position:center top;
 }
 
 .hero::after{
@@ -619,6 +628,7 @@ rgba(0,0,0,0.18),
 rgba(0,0,0,0)
 );
 pointer-events:none;
+z-index:1;
 }
 
 .hero-content{
@@ -864,16 +874,17 @@ width:100%;
 
 <!-- HERO -->
 <section class="hero">
-<br><br><br><br><br><br>
-<h1>Innocentia Turns 50</h1>
-<h2>50 Years of Love • Laughter • Music</h2>
+  <div class="hero-content">
+    <h1>Innocentia Turns 50</h1>
+    <h2>50 Years of Love • Laughter • Music</h2>
 
-<div class="countdown">
-<div class="count-box"><div id="days">0</div>Days</div>
-<div class="count-box"><div id="hours">0</div>Hours</div>
-<div class="count-box"><div id="minutes">0</div>Minutes</div>
-<div class="count-box"><div id="seconds">0</div>Seconds</div>
-</div>
+    <div class="countdown">
+      <div class="count-box"><div id="days">0</div>Days</div>
+      <div class="count-box"><div id="hours">0</div>Hours</div>
+      <div class="count-box"><div id="minutes">0</div>Minutes</div>
+      <div class="count-box"><div id="seconds">0</div>Seconds</div>
+    </div>
+  </div>
 </section>
 
 <section class="details">
@@ -898,17 +909,8 @@ Elegance, sunset sips, gourmet bites, music, dancing and beautiful vineyard vibe
 </div>
 </section>
 
-
-<!---<section class="aide-memoir">
-<h2>Aide Memoir</h2>
-
-<div class="aide-memoir-image">
-<img src="images/aide-memoire.jpeg" alt="Aide Memoir">
-</div>
-</section>--->
-
 <section class="birthday-invite">
-    <h2>Aide Memoir</h2>
+  <h2>Aide Memoir</h2>
   <div class="invite-card">
     <p class="eyebrow">Celebrating</p>
     <h2>Innocentia’s 50th Birthday</h2>
@@ -1076,10 +1078,8 @@ let showingA = true;
 
 const dotsWrap = document.getElementById("dots");
 
-/* create slide list */
 let slideOrder = Array.from({ length: totalSlides }, (_, i) => i + 1);
 
-/* shuffle function */
 function shuffleArray(array){
 for(let i = array.length - 1; i > 0; i--){
 const j = Math.floor(Math.random() * (i + 1));
@@ -1087,7 +1087,6 @@ const j = Math.floor(Math.random() * (i + 1));
 }
 }
 
-/* shuffle once at start */
 shuffleArray(slideOrder);
 
 for(let i = 1; i <= totalSlides; i++){
@@ -1125,7 +1124,7 @@ function nextSlide(){
 currentIndex++;
 
 if(currentIndex >= totalSlides){
-shuffleArray(slideOrder); /* reshuffle after full cycle */
+shuffleArray(slideOrder);
 currentIndex = 0;
 }
 
@@ -1169,7 +1168,6 @@ prevSlide();
 }
 });
 
-/* show first shuffled slide */
 showSlideByIndex(currentIndex);
 </script>
 

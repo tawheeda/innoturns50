@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -35,14 +34,11 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-
 background:
 linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
 url("images/hero2.jpeg");
-
 background-size:cover;
 background-position:center;
-
 color:white;
 padding:40px;
 }
@@ -78,6 +74,117 @@ font-weight:600;
 color:#7a1e3a;
 }
 
+.birthday-invite {
+  --dusty-pink: #e7c6cf;
+  --soft-pink: #e8a8b8;
+  --burgundy: #6d1230;
+  --olive: #4c6630;
+  --tan: #a98363;
+  --mint: #b9c2a3;
+  --nude: #ead7cf;
+  --text-dark: #4f2d33;
+
+  padding: 4rem 1.25rem;
+  background:
+    linear-gradient(135deg, var(--dusty-pink), var(--nude));
+}
+
+.invite-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.15)
+    );
+  border: 1px solid rgba(109, 18, 48, 0.15);
+  box-shadow: 0 20px 50px rgba(109, 18, 48, 0.12);
+  color: var(--text-dark);
+  backdrop-filter: blur(4px);
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  color: var(--olive);
+  font-weight: 700;
+}
+
+.birthday-invite h2 {
+  margin: 0 0 2rem;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1;
+  color: var(--burgundy);
+  font-family: "Georgia", serif;
+}
+
+.invite-block + .invite-block {
+  margin-top: 1.75rem;
+}
+
+.invite-block h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--burgundy);
+}
+
+.invite-block p {
+  margin: 0.45rem 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.closing {
+  margin: 2rem 0 0;
+  font-size: 1.05rem;
+  color: var(--olive);
+  font-weight: 600;
+}
+
+.host {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(109, 18, 48, 0.15);
+}
+
+.host-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--burgundy);
+}
+
+.host-name {
+  font-size: 1.6rem;
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  color: var(--olive);
+}
+
+@media (max-width: 640px) {
+  .invite-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .invite-block p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .host-name {
+    font-size: 1.35rem;
+  }
+}
+
 /* SECTIONS */
 
 section{
@@ -88,7 +195,7 @@ text-align:center;
 /* DETAILS */
 
 .details h2{
-font-family:'Playfair Display';
+font-family:'Playfair Display',serif;
 font-size:2.5rem;
 margin-bottom:20px;
 color:#7a1e3a;
@@ -127,6 +234,8 @@ box-shadow:0 10px 25px rgba(0,0,0,0.15);
 .pink{background:#ff8db3;}
 .burgundy{background:#7a1e3a;}
 .brown{background:#7a4c3a;}
+.olive{background:#808000;}
+.mint{background:#3EB489;}
 
 /* SLIDESHOW */
 
@@ -152,7 +261,7 @@ width:100%;
 height:100%;
 object-fit:contain;
 opacity:0;
-transition:opacity 1.4s ease;
+transition:opacity 1.8s ease;
 }
 
 .slide.active{
@@ -184,43 +293,80 @@ width:26px;
 border-radius:20px;
 }
 
-/* VENUE */
+/* DIRECTIONS SECTION */
 
 .venue{
-background:linear-gradient(180deg,#fff,#fff2f4);
+max-width:900px;
+margin:80px auto;
+padding:0 20px;
+font-family:Arial, Helvetica, sans-serif;
 }
 
-.venue h2{
-font-family:'Playfair Display';
-font-size:2.5rem;
-margin-bottom:20px;
-color:#7a1e3a;
+.directions-panel{
+background:linear-gradient(135deg,#e7c6cf,#ead7cf);
+padding:50px 35px;
+color:#4f2d33;
+border-radius:24px;
+box-shadow:0 20px 50px rgba(109,18,48,0.12);
+text-align:left;
+border:1px solid rgba(109,18,48,0.15);
 }
 
-.venue p{
-font-size:1.2rem;
+.directions-title{
+font-size:2.4rem;
+margin-bottom:28px;
+color:#6d1230; /* burgundy */
+font-family:'Poppins',sans-serif;
+line-height:1.1;
+font-weight:600;
+text-align:left;
 }
 
-/* RSVP */
-
-.rsvp{
-margin-top:40px;
+.steps{
+display:flex;
+flex-direction:column;
+gap:18px;
 }
 
-.rsvp a{
-display:inline-block;
-padding:16px 44px;
-font-size:1.2rem;
-border-radius:40px;
-background:linear-gradient(45deg,#ff7fa5,#a3003d);
-text-decoration:none;
-color:white;
-box-shadow:0 10px 25px rgba(255,120,160,0.45);
-transition:.3s;
+.step{
+display:flex;
+gap:16px;
+align-items:flex-start;
+padding-bottom:18px;
+border-bottom:1px solid rgba(109,18,48,0.15);
 }
 
-.rsvp a:hover{
-transform:scale(1.05);
+.step:last-child{
+border-bottom:none;
+padding-bottom:0;
+}
+
+.step-number{
+width:38px;
+height:38px;
+border-radius:50%;
+background:#6d1230; /* burgundy */
+color:#ffffff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:1rem;
+flex-shrink:0;
+margin-top:2px;
+}
+
+.step-text{
+font-size:1rem;
+line-height:1.6;
+color:#4f2d33;
+}
+
+.step-text strong{
+display:block;
+font-size:1.05rem;
+margin-bottom:4px;
+color:#4c6630; /* olive green accent */
 }
 
 /* FOOTER */
@@ -241,7 +387,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.6);
+background:rgba(109,18,48,0.35); /* burgundy overlay instead of black */
 display:flex;
 align-items:center;
 justify-content:center;
@@ -250,49 +396,65 @@ padding:20px;
 }
 
 .modal-content{
-background:#f5efe9;
-padding:50px 35px;
+background:linear-gradient(135deg,#e7c6cf,#ead7cf); /* dusty pink gradient */
 border-radius:24px;
-max-width:1000px;
-width:min(92%, 1000px);
-text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.25);
+width:min(95%, 760px);
+max-height:90vh;
+overflow-y:auto;
+box-shadow:0 25px 60px rgba(109,18,48,0.18);
+padding:0;
+border:1px solid rgba(109,18,48,0.15);
 }
 
-.modal-content h3{
+.modal-main{
+padding:50px 35px;
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+background:transparent;
+color:#4f2d33;
+}
+
+.modal-main h3{
 font-size:1.1rem;
 letter-spacing:1px;
 margin-bottom:10px;
-color:#4b2c35;
+color:#4c6630; /* olive */
+text-transform:uppercase;
 }
 
-.modal-content h1{
+.modal-main h1{
 font-family:'Poppins',sans-serif;
 font-size:3.2rem;
 line-height:1.15;
 margin-bottom:12px;
-color:#4b2c35;
+color:#6d1230; /* burgundy */
 }
 
-.modal-content p{
-font-size:1.5rem;
+.modal-date{
+font-size:1.3rem;
 margin-bottom:35px;
-color:#4b2c35;
+color:#4f2d33;
 }
 
 .modal-countdown{
 display:flex;
 justify-content:center;
-gap:28px;
+gap:20px;
 flex-wrap:wrap;
 }
 
+/* COUNTDOWN BOXES */
+
 .modal-box{
-background:#3a2f28;
-color:#d6a84f;
-padding:28px 24px;
+background:#6d1230; /* burgundy */
+color:#ffffff;
+padding:24px 20px;
 border-radius:18px;
-min-width:150px;
+min-width:130px;
+box-shadow:0 10px 25px rgba(109,18,48,0.18);
+border:1px solid rgba(255,255,255,0.2);
 }
 
 .modal-box span{
@@ -302,16 +464,42 @@ display:block;
 margin-bottom:10px;
 }
 
+.modal-box p{
+margin:0;
+font-size:1rem;
+color:#ead7cf; /* nude accent */
+}
+
+/* ENTER BUTTON */
+
 .enter-btn{
 margin-top:38px;
 padding:16px 38px;
 border:none;
 border-radius:30px;
-background:linear-gradient(45deg,#b48a3c,#e0b95d);
+background:linear-gradient(45deg,#6d1230,#a98363); /* burgundy -> brown accent */
 color:white;
 font-size:18px;
 cursor:pointer;
 min-width:220px;
+box-shadow:0 8px 18px rgba(109,18,48,0.25);
+transition:all 0.25s ease;
+}
+
+.enter-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 25px rgba(109,18,48,0.35);
+}
+
+/* SCROLLBAR */
+
+.modal-content::-webkit-scrollbar{
+width:10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb{
+background:#a98363; /* warm brown accent */
+border-radius:20px;
 }
 
 /* AIDE MEMOIR */
@@ -345,25 +533,6 @@ height:auto;
 object-fit:cover;
 }
 
-/* MOBILE */
-
-@media(max-width:768px){
-
-.aide-memoir{
-padding:70px 7%;
-}
-
-.aide-memoir h2{
-font-size:2rem;
-margin-bottom:20px;
-}
-
-.aide-memoir-image{
-border-radius:16px;
-}
-
-}
-
 /* TABLET */
 
 @media(max-width:900px){
@@ -372,15 +541,15 @@ border-radius:16px;
 font-size:3rem;
 }
 
-.modal-content{
+.modal-main{
 padding:40px 24px;
 }
 
-.modal-content h1{
+.modal-main h1{
 font-size:2.4rem;
 }
 
-.modal-content p{
+.modal-date{
 font-size:1.2rem;
 }
 
@@ -395,6 +564,19 @@ padding:22px 18px;
 
 .modal-box span{
 font-size:2.4rem;
+}
+
+.aide-memoir{
+padding:70px 7%;
+}
+
+.aide-memoir h2{
+font-size:2rem;
+margin-bottom:20px;
+}
+
+.aide-memoir-image{
+border-radius:16px;
 }
 
 }
@@ -441,20 +623,23 @@ align-items:center;
 
 .modal-content{
 width:100%;
-padding:28px 18px;
 border-radius:20px;
 }
 
-.modal-content h3{
+.modal-main{
+padding:28px 18px;
+}
+
+.modal-main h3{
 font-size:.95rem;
 }
 
-.modal-content h1{
+.modal-main h1{
 font-size:2rem;
 line-height:1.2;
 }
 
-.modal-content p{
+.modal-date{
 font-size:1rem;
 margin-bottom:24px;
 }
@@ -485,10 +670,37 @@ font-size:16px;
 margin-top:28px;
 }
 
-.rsvp a{
-width:100%;
-max-width:320px;
-padding:15px 20px;
+.venue{
+margin:60px auto;
+}
+
+.directions-panel{
+padding:30px 20px;
+border-radius:20px;
+}
+
+.directions-title{
+font-size:1.7rem;
+margin-bottom:22px;
+text-align:center;
+}
+
+.step{
+gap:12px;
+padding-bottom:16px;
+}
+
+.step-number{
+width:34px;
+height:34px;
+font-size:0.95rem;
+}
+
+.step-text{
+font-size:0.95rem;
+}
+
+.step-text strong{
 font-size:1rem;
 }
 
@@ -498,15 +710,15 @@ font-size:1rem;
 
 @media(max-width:420px){
 
-.modal-content{
+.modal-main{
 padding:24px 14px;
 }
 
-.modal-content h1{
+.modal-main h1{
 font-size:1.7rem;
 }
 
-.modal-content p{
+.modal-date{
 font-size:.95rem;
 }
 
@@ -536,105 +748,210 @@ width:100%;
 <body>
 
 <!-- MODAL -->
-
 <div class="modal" id="modal">
+  <div class="modal-content">
+    <section class="modal-main">
+      <div class="modal-header">
+        <h3>COUNTING DOWN TO</h3>
+        <h1>Innocentia's 50th Birthday</h1>
+        <p class="modal-date">28 March 2026 · 16:00</p>
+      </div>
 
-<div class="modal-content">
+      <div class="modal-countdown">
+        <div class="modal-box">
+          <span id="m-days">0</span>
+          <p>Days</p>
+        </div>
 
-<h3>COUNTING DOWN TO</h3>
-<h1>Innocentia's 50th Birthday</h1>
+        <div class="modal-box">
+          <span id="m-hours">0</span>
+          <p>Hours</p>
+        </div>
 
-<p>28 March 2026 · 16:00</p>
+        <div class="modal-box">
+          <span id="m-minutes">0</span>
+          <p>Minutes</p>
+        </div>
 
-<div class="modal-countdown">
+        <div class="modal-box">
+          <span id="m-seconds">0</span>
+          <p>Seconds</p>
+        </div>
+      </div>
 
-<div class="modal-box"><span id="m-days">0</span>Days</div>
-<div class="modal-box"><span id="m-hours">0</span>Hours</div>
-<div class="modal-box"><span id="m-minutes">0</span>Minutes</div>
-<div class="modal-box"><span id="m-seconds">0</span>Seconds</div>
-
+      <div class="modal-action">
+        <button class="enter-btn" onclick="closeModal()">
+          Continue to Invitation
+        </button>
+      </div>
+    </section>
+  </div>
 </div>
 
-<button class="enter-btn" onclick="closeModal()">Enter Celebration</button>
-
-</div>
-</div>
-
+<!-- HERO -->
 <section class="hero">
-
+<br><br><br><br><br><br>
 <h1>Innocentia Turns 50</h1>
 <h2>50 Years of Love • Laughter • Music</h2>
 
 <div class="countdown">
-
 <div class="count-box"><div id="days">0</div>Days</div>
 <div class="count-box"><div id="hours">0</div>Hours</div>
 <div class="count-box"><div id="minutes">0</div>Minutes</div>
 <div class="count-box"><div id="seconds">0</div>Seconds</div>
-
 </div>
-
 </section>
 
 <section class="details">
-
 <h2>The Celebration</h2>
 
 <p>
-Join us for a magical evening celebrating Innocentia's milestone birthday.
-Elegance, sunset sips, gourmet bites, music, dancing and beautiful vineyard vibes.
+We look forward to hosting you for a magical afternoon celebrating Innocentia's milestone birthday.
+Elegance, sunset sips, gourmet bites, music, dancing and beautiful vineyard vibes. A jacket is reccommended as the evening can get chilly. We can't wait to celebrate together!
 </p>
 
-<div class="colors">
+<br>
 
+<h2>Colour Palette</h2>
+
+<div class="colors">
 <div class="color green">Green</div>
 <div class="color pink">Pink</div>
 <div class="color burgundy">Burgundy</div>
 <div class="color brown">Brown</div>
-
+<div class="color mint">Mint</div>
+<div class="color olive">Olive</div>
 </div>
-
 </section>
 
 
-
-<section class="moodboard">
-
-<h2 style="font-family:Playfair Display">Mood Board</h2>
-
-<div class="slideshow">
-
-<img id="slideA" class="slide active" src="images/img1.jpeg" alt="Celebration moodboard image 1">
-<img id="slideB" class="slide" src="images/img2.jpeg" alt="Celebration moodboard image 2">
-
-</div>
-
-<div class="dots" id="dots"></div>
-
-</section>
-
-<section class="aide-memoir">
-
+<!---<section class="aide-memoir">
 <h2>Aide Memoir</h2>
 
 <div class="aide-memoir-image">
 <img src="images/aide-memoire.jpeg" alt="Aide Memoir">
 </div>
+</section>--->
 
+<section class="birthday-invite">
+  <div class="invite-card">
+    <p class="eyebrow">Celebrating</p>
+    <h2>Innocentia’s 50th Birthday</h2>
+
+    <div class="invite-block">
+      <h3>Venue</h3>
+      <p>
+        <strong>Klein Goederust Boutique Estate</strong><br>
+        Franschhoek Valley, Main Road (R45), Franschhoek
+      </p>
+    </div>
+
+    <div class="invite-block">
+      <h3>Dress Code</h3>
+      <p>
+        <strong>Theme:</strong> Smart, effortless chic with a touch of hip comfort.
+      </p>
+      <p>
+        <strong>Color Palette:</strong> Burgundy, shades of pink, olive green, brown, mint, nude.
+      </p>
+      <p>
+        As the evening cools, a stylish jacket is recommended.
+      </p>
+    </div>
+
+    <div class="invite-block">
+      <h3>Celebration</h3>
+      <p><strong>15:30 onwards – till late!</strong></p>
+      <p>
+        Good food, great drinks, and wonderful company await.<br>
+        Just bring your party spirit as we celebrate Innocentia!
+      </p>
+    </div>
+
+    <p class="closing">
+      Looking forward to creating unforgettable memories together.
+    </p>
+
+    <div class="host">
+      <span class="host-label">With love from your host</span>
+      <span class="host-name">Innocentia Motau</span>
+    </div>
+  </div>
 </section>
 
-<section class="venue">
+<section class="moodboard">
+<h2 style="font-family:'Playfair Display',serif;">Mood Board</h2>
 
-<h2>RSVP</h2>
-
-<div class="rsvp">
-
-<a href="https://wa.me/27646767546">RSVP via WhatsApp</a>
-<br>
-<p style="margin-top:15px;">RSVP by 20 March 2026</p>
-
+<div class="slideshow">
+<img id="slideA" class="slide active" src="images/img1.jpeg" alt="Celebration moodboard image 1">
+<img id="slideB" class="slide" src="images/img2.jpeg" alt="Celebration moodboard image 2">
 </div>
 
+<div class="dots" id="dots"></div>
+</section> 
+
+<section class="venue venue-directions">
+  <div class="directions-panel">
+    <h2 class="directions-title">Directions from CPT International Airport</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-text">
+          <strong>Depart Airport</strong>
+          Exit the airport and take the N2 highway towards Somerset West/Cape Town.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-text">
+          <strong>Take Exit 33</strong>
+          Merge onto the R300 towards Bellville/N1.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-text">
+          <strong>Merge onto N1</strong>
+          Follow the N1 north towards Paarl.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-text">
+          <strong>Take Exit 47 (Klapmuts/Stellenbosch)</strong>
+          Turn right onto the R44 towards Stellenbosch.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-text">
+          <strong>Follow R310</strong>
+          Turn left onto the R310 (Helshoogte Road) toward Franschhoek/Boschendal.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-text">
+          <strong>Continue to Franschhoek</strong>
+          Follow the R310 until it merges with the R45. Continue into Franschhoek.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">7</div>
+        <div class="step-text">
+          <strong>Arrival</strong>
+          Klein Goederust is situated in the Franschhoek Valley.
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -642,16 +959,13 @@ A night of elegance, wine & celebration 🍷
 </footer>
 
 <script>
-
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
 
-
 const eventDate = new Date(2026, 2, 28, 16, 0, 0).getTime();
 
 function updateCountdown(){
-
 let now = new Date().getTime();
 let distance = eventDate - now;
 
@@ -673,7 +987,6 @@ document.getElementById("m-days").textContent = days;
 document.getElementById("m-hours").textContent = hours;
 document.getElementById("m-minutes").textContent = minutes;
 document.getElementById("m-seconds").textContent = seconds;
-
 }
 
 updateCountdown();
@@ -684,53 +997,41 @@ const totalSlides = 25;
 
 const slideA = document.getElementById("slideA");
 const slideB = document.getElementById("slideB");
-
 let showingA = true;
 
 const dotsWrap = document.getElementById("dots");
 
-for(let i=1;i<=totalSlides;i++){
-
+for(let i = 1; i <= totalSlides; i++){
 let dot = document.createElement("span");
-dot.className = "dot" + (i===1 ? " active" : "");
+dot.className = "dot" + (i === 1 ? " active" : "");
 dot.onclick = () => goToSlide(i);
-
 dotsWrap.appendChild(dot);
-
 }
 
 function updateDots(index){
-document.querySelectorAll(".dot").forEach((dot,i)=>{
-dot.classList.toggle("active", i===index-1);
+document.querySelectorAll(".dot").forEach((dot, i) => {
+dot.classList.toggle("active", i === index - 1);
 });
 }
 
 function showSlide(num){
-
 let src = "images/img" + num + ".jpeg";
 
 if(showingA){
-
 slideB.src = src;
 slideB.classList.add("active");
 slideA.classList.remove("active");
-
 }else{
-
 slideA.src = src;
 slideA.classList.add("active");
 slideB.classList.remove("active");
-
 }
 
 showingA = !showingA;
-
 updateDots(num);
-
 }
 
 function nextSlide(){
-
 currentSlide++;
 
 if(currentSlide > totalSlides){
@@ -738,32 +1039,30 @@ currentSlide = 1;
 }
 
 showSlide(currentSlide);
-
 }
 
-setInterval(nextSlide,3500);
+setInterval(nextSlide, 3500);
 
 function goToSlide(num){
-
 currentSlide = num;
 showSlide(num);
-
 }
 
 let startX = 0;
+const slideshow = document.querySelector(".slideshow");
 
-document.querySelector(".slideshow").addEventListener("touchstart",e=>{
+slideshow.addEventListener("touchstart", e => {
 startX = e.touches[0].clientX;
 });
 
-document.querySelector(".slideshow").addEventListener("touchend",e=>{
-
+slideshow.addEventListener("touchend", e => {
 let endX = e.changedTouches[0].clientX;
 
-if(startX - endX > 50) nextSlide();
+if(startX - endX > 50){
+nextSlide();
+}
 
 if(endX - startX > 50){
-
 currentSlide--;
 
 if(currentSlide < 1){
@@ -771,11 +1070,8 @@ currentSlide = totalSlides;
 }
 
 showSlide(currentSlide);
-
 }
-
 });
-
 </script>
 
 </body>

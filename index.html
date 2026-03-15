@@ -1067,7 +1067,7 @@ document.getElementById("m-seconds").textContent = seconds;
 updateCountdown();
 setInterval(updateCountdown,1000);
 
-let currentSlide = 1;
+let currentIndex = 0;
 const totalSlides = 35;
 
 const slideA = document.getElementById("slideA");
@@ -1075,6 +1075,20 @@ const slideB = document.getElementById("slideB");
 let showingA = true;
 
 const dotsWrap = document.getElementById("dots");
+
+/* create slide list */
+let slideOrder = Array.from({ length: totalSlides }, (_, i) => i + 1);
+
+/* shuffle function */
+function shuffleArray(array){
+for(let i = array.length - 1; i > 0; i--){
+const j = Math.floor(Math.random() * (i + 1));
+[array[i], array[j]] = [array[j], array[i]];
+}
+}
+
+/* shuffle once at start */
+shuffleArray(slideOrder);
 
 for(let i = 1; i <= totalSlides; i++){
 let dot = document.createElement("span");
@@ -1085,12 +1099,13 @@ dotsWrap.appendChild(dot);
 
 function updateDots(index){
 document.querySelectorAll(".dot").forEach((dot, i) => {
-dot.classList.toggle("active", i === index - 1);
+dot.classList.toggle("active", i === index);
 });
 }
 
-function showSlide(num){
-let src = "images/img" + num + ".jpeg";
+function showSlideByIndex(index){
+let slideNum = slideOrder[index];
+let src = "images/img" + slideNum + ".jpeg";
 
 if(showingA){
 slideB.src = src;
@@ -1103,24 +1118,36 @@ slideB.classList.remove("active");
 }
 
 showingA = !showingA;
-updateDots(num);
+updateDots(index);
 }
 
 function nextSlide(){
-currentSlide++;
+currentIndex++;
 
-if(currentSlide > totalSlides){
-currentSlide = 1;
+if(currentIndex >= totalSlides){
+shuffleArray(slideOrder); /* reshuffle after full cycle */
+currentIndex = 0;
 }
 
-showSlide(currentSlide);
+showSlideByIndex(currentIndex);
+}
+
+function prevSlide(){
+currentIndex--;
+
+if(currentIndex < 0){
+shuffleArray(slideOrder);
+currentIndex = totalSlides - 1;
+}
+
+showSlideByIndex(currentIndex);
 }
 
 setInterval(nextSlide, 3500);
 
 function goToSlide(num){
-currentSlide = num;
-showSlide(num);
+currentIndex = num - 1;
+showSlideByIndex(currentIndex);
 }
 
 let startX = 0;
@@ -1138,15 +1165,12 @@ nextSlide();
 }
 
 if(endX - startX > 50){
-currentSlide--;
-
-if(currentSlide < 1){
-currentSlide = totalSlides;
-}
-
-showSlide(currentSlide);
+prevSlide();
 }
 });
+
+/* show first shuffled slide */
+showSlideByIndex(currentIndex);
 </script>
 
 </body>
